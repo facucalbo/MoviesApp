@@ -1,0 +1,112 @@
+<h1 class="mt-3"> Pipes <small> Angular </small></h1>
+
+<hr>
+
+<div class="row">
+  <div class="col">
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Variable</th>
+          <th>Pipe</th>
+          <th>Salida</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>{{ nombre }}</td>
+          <td> uppercase </td>
+          <td>{{ nombre | uppercase }}</td>
+        </tr>
+
+        <tr>
+          <td>{{ nombre }}</td>
+          <td> lowercase </td>
+          <td>{{ nombre | lowercase }}</td>
+        </tr>
+
+        <tr>
+          <td>{{ nombre2 }}</td>
+          <td> capitalizado </td>
+          <td>{{ nombre2 | capitalizado }}</td>
+        </tr>
+        
+        <tr>
+          <td>{{ nombre }}</td>
+          <td> slice </td>
+          <td>{{ nombre | slice:5 }}</td>
+        </tr>
+
+        <tr>
+          <td>{{ arreglo }}</td>
+          <td> slice </td>
+          <td>{{ arreglo | slice:1:4  }}</td>
+        </tr>
+        
+        <tr>
+          <td>{{ PI }}</td>
+          <td> number </td>
+          <td>{{ PI | number:'3.0-0'  }}</td>
+        </tr>
+
+        <tr>
+          <td>{{ PI }}</td>
+          <td> number </td>
+          <td>{{ PI | number:'.0-2'  }}</td>
+        </tr>
+
+        <tr>
+          <td>{{ porcentaje }}</td>
+          <td> percent </td>
+          <td>{{ porcentaje | percent }}</td>
+        </tr>
+        
+        <tr>
+          <td>{{ porcentaje }}</td>
+          <td> percent </td>
+          <td>{{ porcentaje | percent:'2.2-2' }}</td>
+        </tr>
+      
+        <tr>
+          <td>{{ salario }}</td>
+          <td> currency </td>
+          <td>{{ salario | currency:'EUR':'symbol-narrow':'.0-0' }}</td>
+        </tr>
+
+        <tr>
+          <td>{{ valorPronesa }}</td>
+          <td> async </td>
+          <td>{{ valorPronesa | async }}</td> <!-- espera a que se resuelva la promesa para mostrar el resolve o reject --> 
+        </tr>
+
+        <tr>
+          <td>{{ fecha }}</td>
+          <td> date </td>
+          <td>{{ fecha | date:'MMMM - dd':'':'fr' }}</td> <!-- tambien se puede personalizar. Si queres que este en espanol tenes que instalar un package llamado @angular/localize -->
+        </tr>
+      
+      </tbody>
+
+    </table>
+    
+
+    <!--  se puede aplicar asi -->
+    <!-- <ul>
+      <li *ngFor="let item of arreglo | slice:  2:6"> {{ item }}</li>
+    </ul> -->
+
+    <!-- <div class="row">
+      <div class="col">
+
+        <pre>
+          {{ heroe | json }}
+        </pre>
+
+      </div>
+    </div> -->
+
+  </div>
+</div>
