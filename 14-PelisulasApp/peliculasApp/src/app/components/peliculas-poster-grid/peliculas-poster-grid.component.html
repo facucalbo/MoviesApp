@@ -1,20 +1,18 @@
 <div class="row">
     <div class="col-md-3 mb-5" *ngFor="let movie of movies" >
 
-      <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
+      <img [src]="movie.poster_path | poster"
            class="poster img-fluid">
 
       <div>
         <h3> {{movie.original_title}}</h3>
         <div class="row">
 
-          <div class="col-10">
-            *********
-            <star-rating value="5" totalstars="5" checkedcolor="red" uncheckedcolor="black" size="24px" readonly="false" (rate)="onRate($event)"></star-rating>
-
+          <div class="col-10 text-white">
+            <star-rating [value]="movie.vote_average" [totalstars]="totalStars" checkedcolor="yellow" uncheckedcolor="grey" size="16px" [readonly]="readOnly"></star-rating>
           </div>
 
-          <div class="col">
+          <div class="col text-white">
             {{ movie.vote_average | number:'1.1'}}
           </div>
 

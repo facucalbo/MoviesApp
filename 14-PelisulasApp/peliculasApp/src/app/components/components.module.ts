@@ -6,6 +6,10 @@ import { SlideshowComponent } from './slideshow/slideshow.component';
 import { PeliculasPosterGridComponent } from './peliculas-poster-grid/peliculas-poster-grid.component';
 
 
+import { RatingModule } from 'ng-starrating';
+import { PipesModule } from '../pipes/pipes.module';
+
+
 
 @NgModule({
   declarations: [
@@ -20,7 +24,9 @@ import { PeliculasPosterGridComponent } from './peliculas-poster-grid/peliculas-
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    RatingModule,
+    PipesModule
   ]
 })
 export class ComponentsModule { }

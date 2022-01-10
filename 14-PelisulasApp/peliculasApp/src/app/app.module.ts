@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ComponentsModule } from './components/components.module';
 import { PagesModule } from './pages/pages.module';
-import { RatingModule } from 'ng-starrating';
 
 @NgModule({
   declarations: [
@@ -17,8 +16,7 @@ import { RatingModule } from 'ng-starrating';
     HttpClientModule,
     AppRoutingModule,
     ComponentsModule , // Al importar este modulo, tenemos acceso a todos los componentes del directorio components.
-    PagesModule,
-    RatingModule
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
