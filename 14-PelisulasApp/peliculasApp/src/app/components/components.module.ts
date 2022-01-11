@@ -8,6 +8,7 @@ import { PeliculasPosterGridComponent } from './peliculas-poster-grid/peliculas-
 
 import { RatingModule } from 'ng-starrating';
 import { PipesModule } from '../pipes/pipes.module';
+import { CastSlideshowComponent } from './cast-slideshow/cast-slideshow.component';
 
 
 
@@ -15,12 +16,14 @@ import { PipesModule } from '../pipes/pipes.module';
   declarations: [
     NavbarComponent,
     SlideshowComponent,
-    PeliculasPosterGridComponent
+    PeliculasPosterGridComponent,
+    CastSlideshowComponent
   ],
   exports: [
     NavbarComponent, // como lo usamos fuera del path components, se debe exportar
     SlideshowComponent,
-    PeliculasPosterGridComponent
+    PeliculasPosterGridComponent,
+    CastSlideshowComponent
   ],
   imports: [
     CommonModule,

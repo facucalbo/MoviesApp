@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     const max = ( document.documentElement.scrollHeight || document.body.scrollHeight)
 
     if( pos > max ) {
-      // TODO llamar al servicio
       this.peliculasService.getCartelera().subscribe( movies => {
         this.movies.push(...movies)
       });
