@@ -1,7 +1,6 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from '../../interfaces/cartelera-response';
 import { StarRatingComponent } from 'ng-starrating';
-import { PeliculasService } from '../../services/peliculas.service';
 
 @Component({
   selector: 'app-peliculas-poster-grid',
