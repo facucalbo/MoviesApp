@@ -15,12 +15,14 @@ export class PeliculasComponent implements OnInit {
 
   public movie?: MovieDetail;
   public cast: Cast[] = [];
+  public loading = false;
 
   constructor( private activatedRoute: ActivatedRoute, private peliculasService: PeliculasService,
       private location: Location,
       private router: Router) { }
 
   ngOnInit(): void {
+
     const id = this.activatedRoute.snapshot.params['id'];
 
     combineLatest([
@@ -28,6 +30,7 @@ export class PeliculasComponent implements OnInit {
       this.peliculasService.getCast( id )
       
     ]).subscribe( ([movie, cast]) => {
+      this.loading = true;
       if( !movie ) {
         this.router.navigateByUrl('/home');
         return;
@@ -35,6 +38,7 @@ export class PeliculasComponent implements OnInit {
 
       this.movie = movie;
       this.cast = cast.filter( actor => actor.profile_path !== null);
+      this.loading = false;
     })
 
     // this.peliculasService.getPeliculaDetalle( id ).subscribe( movie => {

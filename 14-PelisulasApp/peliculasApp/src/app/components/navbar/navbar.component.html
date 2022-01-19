@@ -1,10 +1,19 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" [routerLink]="'/home'" routerLinkActive="router-link-active" >MovFree</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      </ul>
+     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Genres
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+          <li><a class="dropdown-item" href="#"></a></li>
+        </ul>
+      </li>  
+    </ul>
+
       <div class="d-flex">
         <input #txtBuscar
                (keyup.enter)="buscarPelicula( txtBuscar.value )"
@@ -15,6 +24,19 @@
         
         <button (click)="buscarPelicula( txtBuscar.value )" class="btn btn-outline-success" type="submit">Search</button>
       </div>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item mx-2">
+          <button (click)="signUpPage()" type="button" class="btn btn-light">Sign Up</button>
+        </li>
+        <li class="nav-item">
+          <button (click)="logInPage()"  type="button" class="btn btn-primary">Log In</button>
+        </li>
+      </ul>
+
     </div>
   </div>
 </nav>

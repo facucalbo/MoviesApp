@@ -9,6 +9,11 @@ import { PeliculasPosterGridComponent } from './peliculas-poster-grid/peliculas-
 import { RatingModule } from 'ng-starrating';
 import { PipesModule } from '../pipes/pipes.module';
 import { CastSlideshowComponent } from './cast-slideshow/cast-slideshow.component';
+import { LoadingComponent } from './loading/loading.component';
+import { LoginComponent } from './register/login/login.component';
+import { SigninComponent } from './register/signin/signin.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { GenerosComponent } from './generos/generos.component';
 
 
 
@@ -17,19 +22,29 @@ import { CastSlideshowComponent } from './cast-slideshow/cast-slideshow.componen
     NavbarComponent,
     SlideshowComponent,
     PeliculasPosterGridComponent,
-    CastSlideshowComponent
+    CastSlideshowComponent,
+    LoadingComponent,
+    LoginComponent,
+    SigninComponent,
+    GenerosComponent
   ],
   exports: [
     NavbarComponent, // como lo usamos fuera del path components, se debe exportar
     SlideshowComponent,
     PeliculasPosterGridComponent,
-    CastSlideshowComponent
+    CastSlideshowComponent,
+    LoadingComponent,
+    SigninComponent,
+    LoginComponent,
+    GenerosComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     RatingModule,
-    PipesModule
+    PipesModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ComponentsModule { }

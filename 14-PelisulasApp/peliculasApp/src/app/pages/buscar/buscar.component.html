@@ -1,6 +1,10 @@
+<div *ngIf="loading" class="mt-5">
+    <app-loading></app-loading>
+  </div>
 
-<h1>Buscar peliculas <small> {{ text }} </small></h1>
+<h1 class="mt-5 mb-4">Search movie: <small> {{ param }} </small></h1>
 <hr>
 
-
-<app-peliculas-poster-grid [movies]="movies"></app-peliculas-poster-grid>
+<div class="mt-4">
+  <app-peliculas-poster-grid [movies]="movies"></app-peliculas-poster-grid>
+</div>

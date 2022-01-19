@@ -18,7 +18,6 @@ export class PeliculasPosterGridComponent implements OnInit {
   constructor( private router: Router) {   }
 
   ngOnInit(): void {
-    console.log(this.movies);
   }
 
   // onRate($event:{oldValue:number, newValue:number, starRating:StarRatingComponent}) {

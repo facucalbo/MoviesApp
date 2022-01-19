@@ -6,6 +6,7 @@ import { BuscarComponent } from './buscar/buscar.component';
 import { ComponentsModule } from '../components/components.module';
 import { PipesModule } from '../pipes/pipes.module';
 import { RatingModule } from 'ng-starrating';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -14,7 +15,8 @@ import { RatingModule } from 'ng-starrating';
   declarations: [
     HomeComponent,
     PeliculasComponent,
-    BuscarComponent
+    BuscarComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,

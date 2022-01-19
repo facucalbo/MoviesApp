@@ -1,0 +1,30 @@
+
+<div class="text-white w-50 mt-5" style="margin: auto;">
+
+    <form autocomplete="off" [formGroup]="forma" (ngSubmit)="save()">
+
+        <div class="p-5 border border-secondary rounded bg-dark">
+            <h3 class="mb-5 fs-1 text-center">Log In</h3>
+
+            <div class="mb-3">
+                <label class="form-label">Usuario</label>
+                <input type="text" class="form-control" placeholder="Usuario"
+                formControlName="usuario"
+                [class.is-invalid]="noValid('usuario')">
+                <small *ngIf="noValid('usuario')" class="text-danger">Ingrese un usuario valido</small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Contraseña</label>
+                <input type="password" class="form-control" placeholder="Minimo 6 caracteres"
+                formControlName="password"
+                [class.is-invalid]="noValid('password')">
+                <small *ngIf="noValid('password')" class="text-danger">Ingrese al menos 6 caracteres</small>
+            </div>
+
+            <div class="d-grid gap-5">
+                <button type="submit" class="btn btn-outline-primary btn-block"> Continuar </button>
+            </div>
+        </div>
+    </form>
+</div>

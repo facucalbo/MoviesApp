@@ -12,8 +12,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    
-
   }
 
   buscarPelicula( text: string ) {
@@ -21,10 +19,15 @@ export class NavbarComponent implements OnInit {
 
     if ( text.length === 0 ) return;
 
-    this.router.navigate(['/buscar', text])
+    this.router.navigate(['/buscar', text])    
+  }
 
-    
+  signUpPage() {
+    this.router.navigate(['/register', 'signup'])
+  }
 
+  logInPage() {
+    this.router.navigate(['/register', 'login'])
   }
 
 }

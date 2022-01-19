@@ -4,6 +4,7 @@ import { Observable, of, tap, map, catchError } from 'rxjs';
 import { CarteleraResponse, Movie } from '../interfaces/cartelera-response';
 import { MovieDetail } from '../interfaces/movie-response';
 import { Cast, CreditsResponse } from '../interfaces/credits-response';
+import { Genre, GenresResponse } from '../interfaces/genres-response';
 
 @Injectable({
   providedIn: 'root'
@@ -30,11 +31,7 @@ export class PeliculasService {
 
   getCartelera(): Observable<Movie[]> {
 
-    console.log('cargando');
-
     if( this.cargando ) return of([]);
-
-
 
     this.cargando = true;
 
@@ -48,11 +45,29 @@ export class PeliculasService {
             );
   }
 
+  getCarteleraPopular(): Observable<Movie[]> {
+
+    if( this.cargando ) return of([]);
+
+    this.cargando = true;
+
+    return this.http.get<CarteleraResponse>(`${ this.baseUrl }/movie/popular`, { params: this.params })
+            .pipe(
+              map( (resp) => resp.results),
+              tap( () => {
+                this.carteleraPage += 1;
+                this.cargando = false;
+              })
+            );
+  }
+
   buscarPeliculas( text: string): Observable<Movie[]> {
 
+    const params = { ...this.params, page: this.carteleraPage, query: text }
 
-    const params = { ...this.params, page: 1, query: text }
+    if( this.cargando ) return of([]);
 
+    this.cargando = true;
     // const params = new HttpParams()
     //                .set({this.params})
     //                .set('page', 1)
@@ -62,9 +77,12 @@ export class PeliculasService {
     // https://api.themoviedb.org/3/search/movie
     return this.http.get<CarteleraResponse>(`${ this.baseUrl }/search/movie`, { params })
         .pipe(
-          map( resp => resp.results )
+          map( resp => resp.results ),
+          tap( () => {
+            this.carteleraPage += 1;
+            this.cargando = false;
+          })
         );
-
   }
 
   getPeliculaDetalle( id: string ) {
@@ -84,4 +102,10 @@ export class PeliculasService {
       );
   };
 
+  getGenres(): Observable<Genre[]>{
+    return this.http.get<GenresResponse>(`${ this.baseUrl }/genre/movie/list`, { params: this.params})
+      .pipe(
+        map( resp => resp.genres)
+      )
+  }
 }

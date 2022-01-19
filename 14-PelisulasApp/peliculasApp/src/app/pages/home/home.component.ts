@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   public movies: Movie[] = []
   public moviesSlideShow: Movie[] = []
+  public loading = false;
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
@@ -27,18 +28,16 @@ export class HomeComponent implements OnInit, OnDestroy {
     // console.log({pos, max});
   }
 
-  constructor( private peliculasService: PeliculasService) {
-
-
-
-  }
+  constructor( private peliculasService: PeliculasService) { }
 
   ngOnInit(): void {
+    this.loading = true;
 
     this.peliculasService.getCartelera()
       .subscribe( movies => {
         this.movies = movies;
         this.moviesSlideShow = movies;
+        this.loading = false;
        });
   }
 
