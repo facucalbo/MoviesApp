@@ -1,5 +1,6 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-register',
@@ -7,18 +8,24 @@ import { ActivatedRoute } from '@angular/router';
   styles: [
   ]
 })
-export class RegisterComponent implements OnInit, OnChanges {
-  
+export class RegisterComponent implements OnInit, OnDestroy {
+
   param = this.activatedRoute.snapshot.params['type'];
 
-  constructor( private activatedRoute: ActivatedRoute ) { }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  constructor( private activatedRoute: ActivatedRoute, private dataService: DataService) {
 
-    location.reload();
+    this.setOnlyLogo(true)
+   }
+
+  ngOnDestroy(): void {
+
+    this.setOnlyLogo(false);
   }
 
-  ngOnInit(): void { 
-    
+  ngOnInit(): void { }
+
+  setOnlyLogo(state: boolean){
+    this.dataService.onlyLogo = state;
   }
 }

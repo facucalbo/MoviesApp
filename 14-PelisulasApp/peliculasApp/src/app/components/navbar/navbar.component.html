@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" [routerLink]="'/home'" routerLinkActive="router-link-active" >MovFree</a>
+    <a class="navbar-brand fs-2" [routerLink]="'/home'" routerLinkActive="router-link-active" >MovFree</a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div *ngIf="!dataService.onlyLogo" class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -11,17 +11,17 @@
         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
           <li><a class="dropdown-item" href="#"></a></li>
         </ul>
-      </li>  
+      </li>
     </ul>
 
       <div class="d-flex">
         <input #txtBuscar
                (keyup.enter)="buscarPelicula( txtBuscar.value )"
-               class="form-control me-2" 
-               type="search" 
-               placeholder="Search movie" 
+               class="form-control me-2"
+               type="search"
+               placeholder="Search movie"
                aria-label="Search">
-        
+
         <button (click)="buscarPelicula( txtBuscar.value )" class="btn btn-outline-success" type="submit">Search</button>
       </div>
 
@@ -30,10 +30,18 @@
 
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item mx-2">
-          <button (click)="signUpPage()" type="button" class="btn btn-light">Sign Up</button>
+          <button (click)="signUpPage()" type="button" class="btn btn-light">
+
+
+
+            Sign Up
+          </button>
         </li>
         <li class="nav-item">
-          <button (click)="logInPage()"  type="button" class="btn btn-primary">Log In</button>
+          <button (click)="logInPage()"  type="button" class="btn btn-primary">
+
+              Log In
+          </button>
         </li>
       </ul>
 

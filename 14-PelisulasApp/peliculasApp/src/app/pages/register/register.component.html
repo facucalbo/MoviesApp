@@ -1,6 +1,6 @@
 
-<div [ngSwitch]="param">
-    <app-signin *ngSwitchCase="'signup'"></app-signin>
-    
-    <app-login *ngSwitchCase="'login'"></app-login>
+<div>
+    <app-signin *ngIf="param == 'signup'"></app-signin>
+
+    <app-login  *ngIf="param == 'login'"></app-login>
 </div>

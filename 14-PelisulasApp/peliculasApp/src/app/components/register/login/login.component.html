@@ -22,8 +22,12 @@
                 <small *ngIf="noValid('password')" class="text-danger">Ingrese al menos 6 caracteres</small>
             </div>
 
-            <div class="d-grid gap-5">
+            <div class="d-grid gap-5 mb-3">
                 <button type="submit" class="btn btn-outline-primary btn-block"> Continuar </button>
+            </div>
+
+            <div>
+              <a (click)="toSignupPage()" class="text-decoration-none link-danger puntero">Haven't account, Sign Up!</a>
             </div>
         </div>
     </form>

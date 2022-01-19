@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,11 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor( private router: Router) { }
+  constructor( private router: Router, public dataService: DataService) {
+
+    this.dataService.onlyLogo = false;
+
+   }
 
   ngOnInit(): void {
 
@@ -19,15 +24,16 @@ export class NavbarComponent implements OnInit {
 
     if ( text.length === 0 ) return;
 
-    this.router.navigate(['/buscar', text])    
+    this.router.navigate(['/buscar', text])
   }
 
   signUpPage() {
-    this.router.navigate(['/register', 'signup'])
+    this.router.navigate(['signup'])
   }
 
   logInPage() {
-    this.router.navigate(['/register', 'login'])
+    this.router.navigate(['login'])
   }
+
 
 }

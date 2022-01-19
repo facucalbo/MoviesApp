@@ -7,6 +7,7 @@ import { ComponentsModule } from '../components/components.module';
 import { PipesModule } from '../pipes/pipes.module';
 import { RatingModule } from 'ng-starrating';
 import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from '../components/navbar/navbar.component';
 
 
 
@@ -23,6 +24,7 @@ import { RegisterComponent } from './register/register.component';
     ComponentsModule,
     PipesModule,
     RatingModule
-  ]
+  ],
+  providers: [NavbarComponent]
 })
 export class PagesModule { }
