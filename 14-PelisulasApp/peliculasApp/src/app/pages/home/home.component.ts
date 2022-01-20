@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     const max = ( document.documentElement.scrollHeight || document.body.scrollHeight)
 
     if( pos > max ) {
-      this.peliculasService.getCartelera().subscribe( movies => {
+      this.peliculasService.getCartelera('now_playing').subscribe( movies => {
         this.movies.push(...movies)
       });
 
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.loading = true;
 
-    this.peliculasService.getCartelera()
+    this.peliculasService.getCartelera('now_playing')
       .subscribe( movies => {
         this.movies = movies;
         this.moviesSlideShow = movies;

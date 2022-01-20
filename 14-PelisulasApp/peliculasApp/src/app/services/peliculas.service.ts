@@ -29,29 +29,13 @@ export class PeliculasService {
     this.carteleraPage = 1;
   }
 
-  getCartelera(): Observable<Movie[]> {
+  getCartelera(type: string): Observable<Movie[]> {
 
     if( this.cargando ) return of([]);
 
     this.cargando = true;
 
-    return this.http.get<CarteleraResponse>(`${ this.baseUrl }/movie/now_playing`, { params: this.params })
-            .pipe(
-              map( (resp) => resp.results),
-              tap( () => {
-                this.carteleraPage += 1;
-                this.cargando = false;
-              })
-            );
-  }
-
-  getCarteleraPopular(): Observable<Movie[]> {
-
-    if( this.cargando ) return of([]);
-
-    this.cargando = true;
-
-    return this.http.get<CarteleraResponse>(`${ this.baseUrl }/movie/popular`, { params: this.params })
+    return this.http.get<CarteleraResponse>(`${ this.baseUrl }/movie/${type}`, { params: this.params })
             .pipe(
               map( (resp) => resp.results),
               tap( () => {
