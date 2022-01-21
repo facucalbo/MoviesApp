@@ -3,16 +3,13 @@
     <a class="navbar-brand fs-2" [routerLink]="'/home'" routerLinkActive="router-link-active" >MovFree</a>
 
     <div *ngIf="!dataService.onlyLogo" class="collapse navbar-collapse" id="navbarSupportedContent">
-     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Genres
-        </a>
-        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
-          <li><a class="dropdown-item" href="#"></a></li>
-        </ul>
-      </li>
-    </ul>
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" role="button" aria-expanded="false">
+            Series
+          </a>
+        </li>
+      </ul>
 
       <div class="d-flex">
         <input #txtBuscar

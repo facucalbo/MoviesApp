@@ -31,7 +31,8 @@
 
         <div class="row mt-3">
             <div class="col">
-                <p> {{ movie.overview }} </p>    
+                <p> {{ movie.overview }} </p>
+                <p class="text-secondary fs-5 fw-light"> {{ movie.release_date | date:'Y' }}</p>
             </div>
         </div>
 

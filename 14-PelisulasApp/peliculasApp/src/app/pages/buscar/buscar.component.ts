@@ -23,7 +23,6 @@ export class BuscarComponent implements OnInit, OnDestroy{
       this.loading = true;
 
       this.addMovies(params);
-
     })
   }
 
@@ -46,21 +45,6 @@ export class BuscarComponent implements OnInit, OnDestroy{
 
   addMovies(params: Params) {
 
-    // if(this.param) {
-
-    //   this.peliculasService.buscarPeliculas( this.param )
-    //       .subscribe( movies => {
-    //         this.movies.push(...movies);
-    //         console.log(this.movies);
-    //       })
-    //   } else {
-    //     this.peliculasService.getCarteleraPopular()
-    //       .subscribe( resp => {
-    //         this.movies.push( ...resp.filter( movie => movie.genre_ids.find( genres => genres === parseInt( this.param ))));
-    //         console.log(this.movies);
-    //       })
-    //   }
-
     if(params['text']) {
       this.param = params['text'];
 
@@ -72,17 +56,15 @@ export class BuscarComponent implements OnInit, OnDestroy{
     } else {
       this.param = params['genre'];
 
-      while(this.movies.length === 0){
-        console.log(this.movies);
-        this.peliculasService.getCarteleraPopular()
-          .subscribe( resp => {
-            this.movies.push(...resp.filter( movie =>
-              movie.genre_ids.find( genres => genres === parseInt( this.param )) &&
-              movie.poster_path !== null
-            ))
-            this.loading = false;
-          })
-      }
+
+      this.peliculasService.getCartelera('popular')
+        .subscribe( resp => {
+          this.movies.push(...resp.filter( movie =>
+            movie.genre_ids.find( genres => genres === parseInt( this.param )) &&
+            movie.poster_path !== null
+          ))
+          this.loading = false;
+        })
     }
 
   }
