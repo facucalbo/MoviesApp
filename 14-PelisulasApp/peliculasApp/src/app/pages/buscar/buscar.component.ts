@@ -32,7 +32,10 @@ export class BuscarComponent implements OnInit, OnDestroy{
     const pos = (document.documentElement.scrollTop || document.body.scrollTop) + 1500;
     const max = (document.documentElement.scrollHeight || document.body.scrollHeight);
 
+
     if ( pos > max ){
+      console.log(pos);
+      console.log(max);
 
       this.activatedRoute.params.subscribe( params => {
         this.addMovies(params);
@@ -69,14 +72,17 @@ export class BuscarComponent implements OnInit, OnDestroy{
     } else {
       this.param = params['genre'];
 
-      this.peliculasService.getCarteleraPopular()
-        .subscribe( resp => {
-          this.movies.push(...resp.filter( movie =>
-            movie.genre_ids.find( genres => genres === parseInt( this.param )) &&
-            movie.poster_path !== null
-          ))
-          this.loading = false;
-        })
+      while(this.movies.length === 0){
+        console.log(this.movies);
+        this.peliculasService.getCarteleraPopular()
+          .subscribe( resp => {
+            this.movies.push(...resp.filter( movie =>
+              movie.genre_ids.find( genres => genres === parseInt( this.param )) &&
+              movie.poster_path !== null
+            ))
+            this.loading = false;
+          })
+      }
     }
 
   }
