@@ -8,6 +8,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { RatingModule } from 'ng-starrating';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from '../components/navbar/navbar.component';
+import { TvHomeComponent } from './tv-home/tv-home.component';
 
 
 
@@ -17,7 +18,8 @@ import { NavbarComponent } from '../components/navbar/navbar.component';
     HomeComponent,
     PeliculasComponent,
     BuscarComponent,
-    RegisterComponent
+    RegisterComponent,
+    TvHomeComponent
   ],
   imports: [
     CommonModule,

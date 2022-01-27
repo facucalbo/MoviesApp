@@ -35,5 +35,9 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['login'])
   }
 
+  seriesPage() {
+    this.router.navigate(['tv'])
+  }
+
 
 }

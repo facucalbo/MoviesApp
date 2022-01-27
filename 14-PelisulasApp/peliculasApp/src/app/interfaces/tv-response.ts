@@ -1,11 +1,11 @@
 export interface TVResponse {
   page:          number;
-  results:       Result[];
+  results:       Serie[];
   total_pages:   number;
   total_results: number;
 }
 
-export interface Result {
+export interface Serie {
   backdrop_path:     null | string;
   first_air_date:    Date;
   genre_ids:         number[];

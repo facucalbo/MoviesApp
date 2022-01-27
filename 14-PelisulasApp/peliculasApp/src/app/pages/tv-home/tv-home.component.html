@@ -1,0 +1,12 @@
+<div *ngIf="loading" class="mt-5">
+  <app-loading></app-loading>
+</div>
+
+<h1 class="mt-5">Billboard</h1>
+
+<div class="row justify-content-center" *ngIf="series.length > 0">
+
+  <div class="col">
+    <app-slideshow [series]="series"></app-slideshow>
+  </div>
+</div>

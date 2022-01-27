@@ -33,9 +33,6 @@ export class BuscarComponent implements OnInit, OnDestroy{
 
 
     if ( pos > max ){
-      console.log(pos);
-      console.log(max);
-
       this.activatedRoute.params.subscribe( params => {
         this.addMovies(params);
 
@@ -56,7 +53,6 @@ export class BuscarComponent implements OnInit, OnDestroy{
     } else {
       this.param = params['genre'];
 
-
       this.peliculasService.getCartelera('popular')
         .subscribe( resp => {
           this.movies.push(...resp.filter( movie =>
@@ -65,7 +61,7 @@ export class BuscarComponent implements OnInit, OnDestroy{
           ))
           this.loading = false;
         })
-    }
+      }
 
   }
 

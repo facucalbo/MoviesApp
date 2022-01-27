@@ -5,6 +5,7 @@ import { CarteleraResponse, Movie } from '../interfaces/cartelera-response';
 import { MovieDetail } from '../interfaces/movie-response';
 import { Cast, CreditsResponse } from '../interfaces/credits-response';
 import { Genre, GenresResponse } from '../interfaces/genres-response';
+import { Serie, TVResponse } from '../interfaces/tv-response';
 
 @Injectable({
   providedIn: 'root'
@@ -91,5 +92,18 @@ export class PeliculasService {
       .pipe(
         map( resp => resp.genres)
       )
+  }
+
+  getSerie(): Observable<Serie[]> {
+    return this.http.get<TVResponse>(`${ this.baseUrl }/tv/on_the_air`, { params: this.params })
+      .pipe(
+        map( resp => resp.results),
+        tap( () => {
+            this.carteleraPage += 1;
+            this.cargando = false
+          }
+        )
+      )
+
   }
 }

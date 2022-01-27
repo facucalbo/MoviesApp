@@ -1,6 +1,7 @@
 import { AfterContentInit, AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import Swiper from 'swiper';
 import { Movie } from '../../interfaces/cartelera-response';
+import { Serie } from '../../interfaces/tv-response';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { Movie } from '../../interfaces/cartelera-response';
 export class SlideshowComponent implements OnInit, AfterViewInit{
 
   @Input() movies: Movie[] = [];
+  @Input() series: Serie[] = [];
 
   private swiper!: Swiper;
 

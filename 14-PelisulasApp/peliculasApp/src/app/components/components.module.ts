@@ -14,6 +14,7 @@ import { LoginComponent } from './register/login/login.component';
 import { SigninComponent } from './register/signin/signin.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { GenerosComponent } from './generos/generos.component';
+import { VariousSlideshowComponent } from './various-slideshow/various-slideshow.component';
 
 
 
@@ -26,7 +27,8 @@ import { GenerosComponent } from './generos/generos.component';
     LoadingComponent,
     LoginComponent,
     SigninComponent,
-    GenerosComponent
+    GenerosComponent,
+    VariousSlideshowComponent
   ],
   exports: [
     NavbarComponent, // como lo usamos fuera del path components, se debe exportar

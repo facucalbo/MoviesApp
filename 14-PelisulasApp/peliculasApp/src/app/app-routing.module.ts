@@ -7,6 +7,7 @@ import { PeliculasComponent } from './pages/peliculas/peliculas.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './components/register/login/login.component';
 import { SigninComponent } from './components/register/signin/signin.component';
+import { TvHomeComponent } from './pages/tv-home/tv-home.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SigninComponent
+  },
+  {
+    path: 'tv',
+    component: TvHomeComponent
   },
   {
     path: '**',
