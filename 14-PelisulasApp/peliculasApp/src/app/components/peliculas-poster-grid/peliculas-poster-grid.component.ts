@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class PeliculasPosterGridComponent implements OnInit {
 
   @Input() movies: Movie[] = [];
+  @Input() homePosition: number = 0;
 
   totalStars = 10;
   readOnly = true;

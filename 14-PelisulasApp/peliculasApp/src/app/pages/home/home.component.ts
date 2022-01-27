@@ -12,14 +12,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   public movies: Movie[] = []
   public moviesSlideShow: Movie[] = []
   public loading = false;
+  public pos = 0;
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
 
-    const pos = (document.documentElement.scrollTop || document.body.scrollTop) + 1500;
+    this.pos = (document.documentElement.scrollTop || document.body.scrollTop) + 1500;
     const max = ( document.documentElement.scrollHeight || document.body.scrollHeight)
 
-    if( pos > max ) {
+    if( this.pos > max ) {
       this.peliculasService.getCartelera('now_playing').subscribe( movies => {
         this.movies.push(...movies)
       });
