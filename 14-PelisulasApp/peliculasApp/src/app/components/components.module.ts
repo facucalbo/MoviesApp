@@ -38,7 +38,8 @@ import { VariousSlideshowComponent } from './various-slideshow/various-slideshow
     LoadingComponent,
     SigninComponent,
     LoginComponent,
-    GenerosComponent
+    GenerosComponent,
+    VariousSlideshowComponent
   ],
   imports: [
     CommonModule,

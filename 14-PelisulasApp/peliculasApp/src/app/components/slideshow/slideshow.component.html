@@ -3,18 +3,39 @@
 
   <div class="swiper-wrapper">
     <!-- Slides -->
-    <div *ngFor="let movie of movies" class="swiper-slide"
-          [ngStyle]="{
-              'background-size': 'cover',
-              'background-image': 'url(https://image.tmdb.org/t/p/original' + movie.backdrop_path + ')'
-          }">
-
-      <div class="movie-description">
-        <h3>{{ movie.original_title }}</h3>
-        <p> {{ movie.overview | slice: 0: 140 }}... </p>
-      </div>
-
+    <div *ngIf="movies.length > 0; then isMovie else isSerie">
     </div>
+
+    <ng-template #isMovie>
+
+      <div *ngFor="let movie of movies" class="swiper-slide"
+      [ngStyle]="{
+        'background-size': 'cover',
+        'background-image': 'url(https://image.tmdb.org/t/p/original' + movie.backdrop_path + ')'
+      }">
+
+        <div class="movie-description">
+          <h3>{{ movie.title }}</h3>
+          <p> {{ movie.overview | slice: 0: 140 }}... </p>
+        </div>
+
+      </div>
+    </ng-template>
+
+    <ng-template #isSerie>
+      <div *ngFor="let serie of series" class="swiper-slide"
+      [ngStyle]="{
+          'background-size': 'cover',
+          'background-image': 'url(https://image.tmdb.org/t/p/original' + serie.backdrop_path + ')'
+      }">
+
+        <div class="movie-description">
+          <h3>{{ serie.name }}</h3>
+          <p> {{ serie.overview | slice: 0: 140 }}... </p>
+        </div>
+
+      </div>
+    </ng-template>
   </div>
 
   <div class="swiper-pagination"></div>

@@ -1,8 +1,16 @@
 <div class="swiper">
   <div class="swiper-wrapper">
 
-    <div class="swiper-slide">
-      <img src="">
+    <div *ngFor="let element of elements; index as i"
+          class="swiper-slide text-light">
+
+      <img [src]="element.poster_path | poster"
+      class="img-fluid rounded">
+
+      <div class="mt-2">
+        <h3 class="lh-1 fs-5"> <a class="fw-normal text-decoration-none text-light"> {{ element.name }} </a></h3>
+        <p> <span class="text-secondary">{{ element.first_air_date | date: 'Y' }}</span></p>
+      </div>
 
     </div>
   </div>

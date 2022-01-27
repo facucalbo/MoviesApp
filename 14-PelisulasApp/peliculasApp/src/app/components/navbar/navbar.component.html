@@ -5,7 +5,8 @@
     <div *ngIf="!dataService.onlyLogo" class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" role="button" aria-expanded="false">
+          <a class="nav-link" role="button" aria-expanded="false"
+            (click)="seriesPage()">
             Series
           </a>
         </li>
